@@ -1,0 +1,102 @@
+{
+  "repository": "ldmberman/pse-tae-experiments",
+  "checkpoint_count": 225,
+  "checkpoint_bytes": 440098779,
+  "naming": "checkpoints/<method>/<run-id>/fold-N/<checkpoint>",
+  "index": "https://huggingface.co/ldmberman/pse-tae-experiments/blob/main/checkpoint_index.json",
+  "alias_conflicts": [
+    {
+      "path": "results/capacity_large/Fold_1/capacity_large/best.pt",
+      "selected_sha256": "e6bf3da3c3e41359c1bc736a769063116d95428e4e80fbd27885491302f33753",
+      "alternatives": [
+        "e6bf3da3c3e41359c1bc736a769063116d95428e4e80fbd27885491302f33753",
+        "13419dfc78119c5dc4d3c708680413385f92daa46b6df32320bdbe89ee3f46fe"
+      ]
+    },
+    {
+      "path": "results/capacity_large/Fold_1/capacity_large/last.pt",
+      "selected_sha256": "1284865a1609ff11afd3dd67fe9f6aa744bafea61ca0d717fd711f80c684c098",
+      "alternatives": [
+        "1284865a1609ff11afd3dd67fe9f6aa744bafea61ca0d717fd711f80c684c098",
+        "d4d516ea8e10ec9457ba6e641301363eb4627c1fe1396d94efaf94dcc24f86e7"
+      ]
+    },
+    {
+      "path": "results/grouped_scratch/Fold_1/baseline/best.pt",
+      "selected_sha256": "09f310fc56f86a3334472ff0ea0b78e8848836fa91f43ca1d86ac0577d2e8966",
+      "alternatives": [
+        "2eb26c27f3f816c5b832c943b54755db492b213fdeb9c491c0ee8acd3c10e4e6",
+        "09f310fc56f86a3334472ff0ea0b78e8848836fa91f43ca1d86ac0577d2e8966"
+      ]
+    },
+    {
+      "path": "results/grouped_scratch/Fold_1/baseline/last.pt",
+      "selected_sha256": "e7438ddf13cdba10a7f7cc884acca5575596faa5470b3adf934fa362ffb31f2d",
+      "alternatives": [
+        "2a7a5a7e56ad0db9637e393ec2a9755c8c5b9a7e79eea9c4c0c701d40c12a69d",
+        "e7438ddf13cdba10a7f7cc884acca5575596faa5470b3adf934fa362ffb31f2d"
+      ]
+    },
+    {
+      "path": "results/grouped_scratch/Fold_1/capacity/best.pt",
+      "selected_sha256": "9ea491f5d5f4798ef0bd4b8c86ad94d3850c975c25954b4f745e965068778725",
+      "alternatives": [
+        "cc6bb2b86f1a1f8b6e50ecd9d3a5da74f8ef5665edbfdaf1d8f3bf45f1f09556",
+        "9ea491f5d5f4798ef0bd4b8c86ad94d3850c975c25954b4f745e965068778725"
+      ]
+    },
+    {
+      "path": "results/grouped_scratch/Fold_1/capacity/last.pt",
+      "selected_sha256": "56410e5accf2be7841e6af92bbfd21ba32fd9b127055ed24e0f3f0e588b61b8d",
+      "alternatives": [
+        "c711c4c949c0cbee807291d5e8be4bab1e804628940f28d5beb0b9193bc739c1",
+        "56410e5accf2be7841e6af92bbfd21ba32fd9b127055ed24e0f3f0e588b61b8d"
+      ]
+    },
+    {
+      "path": "results/grouped_scratch/Fold_1/grouped/best.pt",
+      "selected_sha256": "c2c4e2e0c8abc4e6b13ae864d2fd56516928933740bef753130938d5de17087b",
+      "alternatives": [
+        "5cf075ce2ad13d12b15c11242ebaeee56ab7fcd2d87b857d3fb301931ed40d10",
+        "c2c4e2e0c8abc4e6b13ae864d2fd56516928933740bef753130938d5de17087b"
+      ]
+    },
+    {
+      "path": "results/grouped_scratch/Fold_1/grouped/last.pt",
+      "selected_sha256": "eecb21e7e4ff2dff8ab53451450f9bebe424e9da1a7ea3843cce7aeef03f50c6",
+      "alternatives": [
+        "4acc090b9f187d6b2f1598e812338494a94c257477565c0cb0ee429556f42b8c",
+        "eecb21e7e4ff2dff8ab53451450f9bebe424e9da1a7ea3843cce7aeef03f50c6"
+      ]
+    }
+  ],
+  "verification": {
+    "unit_tests": 13,
+    "tgt_architecture_checks": "passed",
+    "restored_paths": 863,
+    "cnn_tgt_checkpoint_inference": "passed (2 parcels, CPU)",
+    "tgt_checkpoint_inference": "passed (2 parcels, CPU)",
+    "remote_sizes_and_hashes": "all current remote files matched; all manifest files verified locally",
+    "downloaded_cnn_tgt_checkpoint": "SHA-256 matched",
+    "downloaded_new_xgboost_checkpoint": "SHA-256 matched",
+    "new_measurement_restore_paths_verified": 61,
+    "xgboost_saved_model_metric_reloads": 10,
+    "durum_saved_classifier_score_reloads": 5,
+    "readme_preserved": true,
+    "history_commits": 1
+  },
+  "revision": "f3094ec41989c199ddadf62eb13131cabc966025",
+  "uploaded_files": 830,
+  "uploaded_bytes": 467747034,
+  "new_measurements": {
+    "checkpoint_count": 15,
+    "checkpoint_bytes": 104466604,
+    "new_bundle_files": 61,
+    "new_bundle_bytes": 110711161
+  },
+  "smoke_test_cleanup": {
+    "removed_checkpoints": 34,
+    "removed_checkpoint_bytes": 115656757,
+    "removed_metadata_files": 100
+  }
+}

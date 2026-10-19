@@ -1,0 +1,37 @@
+# Local artifacts and credentials never belong in the source repository.
+.local/
+/.venv
+venv/
+.env
+.env.*
+.hs-api-key
+*.pem
+*.key
+/data
+results/
+results_*/
+checkpoints/
+artifacts/
+outputs/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+*.log
+*.pid
+*.pt
+*.pth
+*.pth.tar
+*.ckpt
+*.safetensors
+*.joblib
+*.ubj
+*.npz
+*.npy
+*.pkl
+*.tar.gz
+*.7z
+*.zip
+
+# Local live dashboards are retained outside the clean source tree.
+/*.svg

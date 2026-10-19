@@ -1,0 +1,665 @@
+[
+  {
+    "title": "Fold 1: 38283 held-out parcels",
+    "groups": [
+      [
+        "",
+        [
+          {
+            "label": "Eight-model ensemble: remove only RoPE (post-hoc)",
+            "values": [
+              54.97609569336379,
+              94.96120993652535,
+              61.47710025232469
+            ],
+            "source": "records/rope_removal.json"
+          },
+          {
+            "label": "Validation-selected ensemble (9 members)",
+            "values": [
+              54.93308503001464,
+              95.02912519917457,
+              61.207594983632276
+            ],
+            "source": "results/ensemble_library/Fold_1/report.json"
+          },
+          {
+            "label": "Eight-model control: six + baseline checkpoints 27 / 78",
+            "values": [
+              54.15609283788674,
+              94.96643418749838,
+              59.63298862355673
+            ],
+            "source": "results/ensemble_library/Fold_1/report.json"
+          },
+          {
+            "label": "Six-model ensemble: previous five + CNN \u2192 TGT",
+            "values": [
+              54.235271797228854,
+              94.97165843847138,
+              60.06296844653283
+            ],
+            "source": "results/requested_comparison/six_model_ensemble/report.json"
+          },
+          {
+            "label": "Five-model ensemble: four neural models + XGBoost",
+            "values": [
+              53.72404814348768,
+              94.88023404644359,
+              59.57984810873117
+            ],
+            "source": "results/requested_comparison/xgboost_ensemble/report.json"
+          },
+          {
+            "label": "Four-model ensemble: baseline + capacity + TGT + dropout",
+            "values": [
+              52.61947706839384,
+              94.79664603087532,
+              58.0201965919677
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json"
+          },
+          {
+            "label": "Three-model ensemble: baseline + capacity + TGT",
+            "values": [
+              52.2793345220272,
+              94.7574641485777,
+              57.79896008395639
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json"
+          },
+          {
+            "label": "XGBoost: frozen embeddings + spectral summaries",
+            "values": [
+              52.2254181167317,
+              93.5062560405402,
+              61.61889361802421
+            ],
+            "source": "results/multiclass_probes/Fold_1/results.json"
+          },
+          {
+            "label": "Date-dropout fine-tuning",
+            "values": [
+              51.67126199738541,
+              94.4152757098451,
+              58.78236262519556
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json"
+          },
+          {
+            "label": "Baseline checkpoint ensemble (epochs 27 / 38 / 78)",
+            "values": [
+              51.60732823966951,
+              94.67387613300943,
+              57.47223618501322
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json"
+          },
+          {
+            "label": "Baseline + frequency-based logit adjustment (tau=0.1)",
+            "values": [
+              51.24726918194094,
+              93.64731081681164,
+              61.82042654408891
+            ],
+            "validation": {
+              "miou": 51.743922446454135,
+              "oa": 93.74395945981246,
+              "mean_recall": 62.20939362930464
+            },
+            "source": "outputs/decision_boundaries/metrics.json",
+            "reproduction": "scripts/plot_decision_boundaries.py",
+            "tau_grid": {
+              "start": 0,
+              "stop": 2.5,
+              "step": 0.05
+            },
+            "selection": "Highest validation mIoU"
+          },
+          {
+            "label": "Baseline + best single-class bias",
+            "values": [
+              51.36488486124316,
+              94.30034218843873,
+              58.341623811577634
+            ],
+            "source": "records/class_bias_search.json"
+          },
+          {
+            "label": "Baseline + greedy class biases",
+            "values": [
+              51.68496676182186,
+              94.28205731003317,
+              58.65477855059296
+            ],
+            "source": "records/class_bias_search.json"
+          },
+          {
+            "label": "Baseline + extended class-bias search (validation OA constrained)",
+            "values": [
+              51.575566188863775,
+              94.14622678473475,
+              59.3617402339882
+            ],
+            "source": "records/class_bias_search_extended.json"
+          },
+          {
+            "label": "Original PSE+TAE baseline (cached evaluation)",
+            "values": [
+              51.31040863685266,
+              94.23765117676253,
+              58.35255834670093
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json",
+            "validation": {
+              "miou": 51.241923948716675,
+              "oa": 94.27160880808714,
+              "mean_recall": 58.50049285445653
+            },
+            "validation_source": "results/frozen_corrections/Fold_1/results.json"
+          },
+          {
+            "label": "CNN \u2192 TGT correction (snapshot epoch 4)",
+            "values": [
+              51.65454151863263,
+              94.37086957657445,
+              58.66253159399146
+            ],
+            "source": "results/requested_comparison/six_model_ensemble/report.json",
+            "validation": {
+              "miou": 51.87842575307978,
+              "oa": 94.43094846276415,
+              "mean_recall": 58.96260825481382
+            },
+            "validation_source": "results/cnn_corrections/progress.json"
+          },
+          {
+            "label": "Baseline-size PSE+TAE distilled from scratch (epoch 86)",
+            "values": [
+              53.35062972779878,
+              94.66081550557689,
+              60.69560342779622
+            ],
+            "source": "results/distillation/Fold_1/report.json"
+          },
+          {
+            "label": "Matched baseline-size CE-only control (epoch 80)",
+            "values": [
+              51.67979313433331,
+              94.43356058825067,
+              58.466877634443435
+            ],
+            "source": "results/distillation/Fold_1/report.json"
+          }
+        ]
+      ],
+      [
+        "Earlier variants: no established improvement",
+        [
+          {
+            "label": "CNN spatial correction",
+            "values": [
+              51.279162452007895,
+              94.33952407073636,
+              58.411938090161286
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json",
+            "validation": {
+              "miou": 51.753874433064674,
+              "oa": 94.45445759214273,
+              "mean_recall": 59.21221801949225
+            },
+            "validation_source": "results/requested_comparison/Fold_1/report.json"
+          },
+          {
+            "label": "Patch baseline, validation-best epoch 80",
+            "values": [
+              49.93888753785837,
+              94.17234803959983,
+              57.56955796452944
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json"
+          },
+          {
+            "label": "Patch baseline, ensemble checkpoint 38",
+            "values": [
+              50.48081293679929,
+              94.37870595303399,
+              56.721247944936536
+            ],
+            "source": "results/requested_comparison/Fold_1/report.json"
+          },
+          {
+            "label": "TGT (epoch 38 ensemble snapshot)",
+            "values": [
+              49.437840416342176,
+              93.98166287908471,
+              56.53221654694958
+            ],
+            "source": "results/complementarity/snapshot_20261018_1605/test_evaluation/report.json",
+            "group": "earlier"
+          },
+          {
+            "label": "Capacity control (epoch 67 ensemble snapshot)",
+            "values": [
+              50.160251455192686,
+              94.1044327769506,
+              58.00589302861668
+            ],
+            "source": "results/complementarity/snapshot_20261018_1605/test_evaluation/report.json",
+            "group": "earlier"
+          },
+          {
+            "label": "Embedding moments (mean / std / skew / kurtosis)",
+            "values": [
+              46.15944847885274,
+              93.9790507535982,
+              51.16271573930846
+            ],
+            "source": "results/moments/Fold_1/conf_mat.pkl",
+            "group": "earlier"
+          },
+          {
+            "label": "Frozen encoder + date kurtosis",
+            "values": [
+              51.468444652295965,
+              94.30556643941175,
+              59.405290343896496
+            ],
+            "source": "results/date_kurtosis/Fold_1/conf_mat.pkl",
+            "group": "earlier"
+          },
+          {
+            "label": "Scaled embedding kurtosis, gradients on",
+            "values": [
+              47.98,
+              94.17,
+              null
+            ],
+            "source": "Historical experiment summary (transcribed)",
+            "group": "earlier",
+            "context": {
+              "split": "test",
+              "folds": [
+                1
+              ],
+              "aggregation": "Single fold",
+              "metric_order": [
+                "mIoU",
+                "overall accuracy",
+                "average recall"
+              ],
+              "units": "percent",
+              "variant": "Embedding excess kurtosis divided by the 1st-to-99th percentile gap and added as a feature; gradients enabled.",
+              "unreported_metrics": "Null values were not reported in the source summary.",
+              "provenance": {
+                "summary_sha256": "001b8f233f9f76eea217838ab8511a39455f38fe4bb5e94d5ac206b1f88f34ca",
+                "section": "3. Kurtosis did not improve the model",
+                "status": "Reported values preserved as recorded; no new evaluation or extra precision. Historical evaluations are not interchangeable with the later fixed-pixel cache."
+              }
+            }
+          },
+          {
+            "label": "Parcel mean / std in the pixel encoder",
+            "values": [
+              50.11,
+              null,
+              null
+            ],
+            "source": "Historical experiment summary (transcribed)",
+            "group": "earlier",
+            "context": {
+              "split": "test",
+              "folds": [
+                1
+              ],
+              "aggregation": "Single fold",
+              "metric_order": [
+                "mIoU",
+                "overall accuracy",
+                "average recall"
+              ],
+              "units": "percent",
+              "variant": "Parcel band means and standard deviations supplied to the first pixel MLP.",
+              "unreported_metrics": "Null values were not reported in the source summary.",
+              "provenance": {
+                "summary_sha256": "001b8f233f9f76eea217838ab8511a39455f38fe4bb5e94d5ac206b1f88f34ca",
+                "section": "3. Kurtosis did not improve the model",
+                "status": "Reported values preserved as recorded; no new evaluation or extra precision. Historical evaluations are not interchangeable with the later fixed-pixel cache."
+              }
+            }
+          },
+          {
+            "label": "Parcel mean / std / kurtosis in the pixel encoder",
+            "values": [
+              50.05,
+              null,
+              null
+            ],
+            "source": "Historical experiment summary (transcribed)",
+            "group": "earlier",
+            "context": {
+              "split": "test",
+              "folds": [
+                1
+              ],
+              "aggregation": "Single fold",
+              "metric_order": [
+                "mIoU",
+                "overall accuracy",
+                "average recall"
+              ],
+              "units": "percent",
+              "variant": "Parcel band means and standard deviations, plus raw kurtosis, supplied to the first pixel MLP.",
+              "unreported_metrics": "Null values were not reported in the source summary.",
+              "provenance": {
+                "summary_sha256": "001b8f233f9f76eea217838ab8511a39455f38fe4bb5e94d5ac206b1f88f34ca",
+                "section": "3. Kurtosis did not improve the model",
+                "status": "Reported values preserved as recorded; no new evaluation or extra precision. Historical evaluations are not interchangeable with the later fixed-pixel cache."
+              }
+            }
+          },
+          {
+            "label": "Inverse-square-root class-weighted loss",
+            "values": [
+              49.07,
+              92.14,
+              null
+            ],
+            "source": "Historical experiment summary (transcribed)",
+            "group": "earlier",
+            "context": {
+              "split": "test",
+              "folds": [
+                1
+              ],
+              "aggregation": "Single fold",
+              "metric_order": [
+                "mIoU",
+                "overall accuracy",
+                "average recall"
+              ],
+              "units": "percent",
+              "variant": "Baseline trained from scratch with inverse-square-root class-frequency loss weights.",
+              "unreported_metrics": "Null values were not reported in the source summary.",
+              "provenance": {
+                "summary_sha256": "001b8f233f9f76eea217838ab8511a39455f38fe4bb5e94d5ac206b1f88f34ca",
+                "section": "4. Change the decision boundary?",
+                "status": "Reported values preserved as recorded; no new evaluation or extra precision. Historical evaluations are not interchangeable with the later fixed-pixel cache."
+              }
+            }
+          },
+          {
+            "label": "Small per-pixel temporal attention, from scratch",
+            "values": [
+              48.10858560576429,
+              93.73351095786641,
+              55.818663310797625
+            ],
+            "source": "results/pixel_temporal_scratch/Fold_1/report.json",
+            "group": "earlier"
+          },
+          {
+            "label": "Small temporal + spatial attention, from scratch",
+            "values": [
+              49.200045423941965,
+              94.02868113784186,
+              55.018680447837966
+            ],
+            "source": "results/pixel_temporal_scratch/Fold_1/report.json",
+            "group": "earlier"
+          },
+          {
+            "label": "Full-width embedding-only correction",
+            "values": [
+              51.56003908043143,
+              94.34474832170937,
+              58.974577977199935
+            ],
+            "source": "results/grouped_corrections/Fold_1/report.json",
+            "group": "earlier",
+            "validation": {
+              "miou": 51.424801086572636,
+              "oa": 94.36042107462842,
+              "mean_recall": 58.86663818244733
+            },
+            "validation_source": "results/grouped_corrections/Fold_1/control/history.json"
+          },
+          {
+            "label": "Full-width TGT correction",
+            "values": [
+              51.244643853192585,
+              94.23765117676253,
+              58.4145327419458
+            ],
+            "source": "results/grouped_corrections/Fold_1/report.json",
+            "group": "earlier",
+            "validation": {
+              "miou": 51.729103420434576,
+              "oa": 94.38654232949351,
+              "mean_recall": 59.2384603176204
+            },
+            "validation_source": "results/grouped_corrections/Fold_1/temporal/history.json"
+          },
+          {
+            "label": "Full-width TGT + spatial attention correction",
+            "values": [
+              51.46421578108142,
+              94.36303320011493,
+              58.366341094545234
+            ],
+            "source": "results/grouped_corrections/Fold_1/report.json",
+            "group": "earlier"
+          },
+          {
+            "label": "Per-pixel temporal-distribution correction",
+            "values": [
+              51.14892057151782,
+              94.3525846981689,
+              57.665216576517174
+            ],
+            "source": "results/frozen_corrections/Fold_1/results.json",
+            "group": "earlier",
+            "validation": {
+              "miou": 51.679228902177435,
+              "oa": 94.4126635843586,
+              "mean_recall": 58.494966672766125
+            },
+            "validation_source": "results/frozen_corrections/Fold_1/results.json"
+          },
+          {
+            "label": "Small patch-pixel temporal correction",
+            "values": [
+              51.779382450863565,
+              94.38915445498002,
+              58.71511913744347
+            ],
+            "source": "results/frozen_corrections/Fold_1/results.json",
+            "group": "earlier",
+            "validation": {
+              "miou": 51.71507130255765,
+              "oa": 94.46490609408876,
+              "mean_recall": 58.898535354292235
+            },
+            "validation_source": "results/frozen_corrections/Fold_1/results.json"
+          },
+          {
+            "label": "Small temporal + spatial correction, no coordinates",
+            "values": [
+              51.79733905260681,
+              94.39960295692606,
+              58.70125937430109
+            ],
+            "source": "results/frozen_corrections/Fold_1/results.json",
+            "group": "earlier",
+            "validation": {
+              "miou": 51.34854193738371,
+              "oa": 94.48841522346734,
+              "mean_recall": 58.35630710525256
+            },
+            "validation_source": "results/frozen_corrections/Fold_1/results.json"
+          },
+          {
+            "label": "Small temporal + spatial correction, with coordinates",
+            "values": [
+              51.69318989046536,
+              94.35780894914191,
+              58.58341478211055
+            ],
+            "source": "results/frozen_corrections/Fold_1/results.json",
+            "group": "earlier"
+          },
+          {
+            "label": "Small replacement classifier (best new variant by validation)",
+            "values": [
+              50.72609030301305,
+              93.99994775749026,
+              59.075365749764764
+            ],
+            "source": "results/frozen_trajectories/Fold_1/results.json",
+            "group": "earlier"
+          }
+        ]
+      ]
+    ],
+    "caption": [
+      "All values are percentages. One fold and one seed; these comparisons are exploratory.",
+      "Earlier variants include ties and inconclusive gains. Missing values are unmeasured, not zero.",
+      "Library additions and mixture weights are chosen on validation; test scores do not select the ensemble."
+    ]
+  },
+  {
+    "title": "Five-fold results: mean and sample standard deviation",
+    "groups": [
+      [
+        "",
+        [
+          {
+            "label": "PSE+TAE reproduction",
+            "values": [
+              50.96253822685437,
+              94.22293256405372,
+              58.504182483372226
+            ],
+            "sd": [
+              0.6019289857741531,
+              0.09171186030656048,
+              0.9397230573626493
+            ],
+            "source": "results/requested_comparison/baseline_five_folds.json"
+          }
+        ]
+      ],
+      [
+        "Earlier alternatives",
+        [
+          {
+            "label": "L-TAE reproduction",
+            "values": [
+              50.67,
+              94.33,
+              null
+            ],
+            "sd": [
+              0.95,
+              0.04,
+              null
+            ],
+            "source": "Historical experiment summary (transcribed)",
+            "context": {
+              "split": "test",
+              "folds": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "aggregation": "Mean across folds; sd is sample standard deviation (ddof=1), not standard error or confidence interval. Training sets overlap.",
+              "metric_order": [
+                "mIoU",
+                "overall accuracy",
+                "average recall"
+              ],
+              "units": "percent",
+              "variant": "Reproduction of the Light Temporal Attention Encoder follow-up.",
+              "unreported_metrics": "Null values were not reported in the source summary.",
+              "provenance": {
+                "summary_sha256": "001b8f233f9f76eea217838ab8511a39455f38fe4bb5e94d5ac206b1f88f34ca",
+                "section": "1. Reproduce the baseline",
+                "status": "Reported values preserved as recorded; no new evaluation or extra precision. Historical evaluations are not interchangeable with the later fixed-pixel cache."
+              }
+            }
+          },
+          {
+            "label": "Scaled kurtosis, stopped gradient",
+            "values": [
+              50.79,
+              94.17,
+              null
+            ],
+            "sd": [
+              0.75,
+              0.21,
+              null
+            ],
+            "source": "Historical experiment summary (transcribed)",
+            "context": {
+              "split": "test",
+              "folds": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "aggregation": "Mean across folds; sd is sample standard deviation (ddof=1), not standard error or confidence interval. Training sets overlap.",
+              "metric_order": [
+                "mIoU",
+                "overall accuracy",
+                "average recall"
+              ],
+              "units": "percent",
+              "variant": "Embedding excess kurtosis divided by the 1st-to-99th percentile gap and added as a feature; gradient stopped at kurtosis.",
+              "unreported_metrics": "Null values were not reported in the source summary.",
+              "provenance": {
+                "summary_sha256": "001b8f233f9f76eea217838ab8511a39455f38fe4bb5e94d5ac206b1f88f34ca",
+                "section": "3. Kurtosis did not improve the model",
+                "status": "Reported values preserved as recorded; no new evaluation or extra precision. Historical evaluations are not interchangeable with the later fixed-pixel cache."
+              }
+            }
+          },
+          {
+            "label": "XGBoost 60/20/20: band mean / std",
+            "values": [
+              41.40337633959422,
+              93.04066622762052,
+              44.7205677122101
+            ],
+            "sd": [
+              0.28864396089667693,
+              0.11425407527930849,
+              0.32490286486639686
+            ],
+            "source": "records/xgboost_60_20_20.json"
+          },
+          {
+            "label": "XGBoost 60/20/20: band mean / std + kurtosis",
+            "values": [
+              40.86847831916256,
+              93.12686815640028,
+              44.04333701288917
+            ],
+            "sd": [
+              0.36998982922657614,
+              0.11791077057202085,
+              0.3903339064803496
+            ],
+            "source": "records/xgboost_60_20_20.json"
+          }
+        ]
+      ]
+    ],
+    "caption": []
+  }
+]

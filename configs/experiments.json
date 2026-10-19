@@ -1,0 +1,396 @@
+{
+  "baseline": {
+    "kind": "native",
+    "train_args": [],
+    "model_kwargs": {},
+    "family": "native",
+    "output": "results/baseline",
+    "variant": "baseline"
+  },
+  "ltae": {
+    "kind": "native",
+    "train_args": [
+      "--temporal",
+      "ltae"
+    ],
+    "model_kwargs": {},
+    "family": "ltae",
+    "output": "results/ltae",
+    "variant": "baseline"
+  },
+  "rope": {
+    "kind": "native",
+    "train_args": [
+      "--pos_encoding",
+      "rope"
+    ],
+    "model_kwargs": {},
+    "family": "rope",
+    "output": "results/rope",
+    "variant": "baseline"
+  },
+  "moments": {
+    "kind": "native",
+    "train_args": [
+      "--pooling",
+      "mean_std_skew_kurtosis",
+      "--mlp2",
+      "[260,128]",
+      "--kurtosis_scaling",
+      "none"
+    ],
+    "model_kwargs": {
+      "pooling": "mean_std_skew_kurtosis",
+      "mlp2": [
+        260,
+        128
+      ]
+    },
+    "family": "native",
+    "output": "results/moments",
+    "variant": "baseline"
+  },
+  "kurtosis": {
+    "kind": "native",
+    "train_args": [
+      "--pooling",
+      "mean_std_kurtosis",
+      "--mlp2",
+      "[196,128]"
+    ],
+    "model_kwargs": {
+      "pooling": "mean_std_kurtosis",
+      "mlp2": [
+        196,
+        128
+      ]
+    },
+    "family": "native",
+    "output": "results/kurtosis",
+    "variant": "baseline"
+  },
+  "kurtosis_sg": {
+    "kind": "native",
+    "train_args": [
+      "--pooling",
+      "mean_std_kurtosis",
+      "--mlp2",
+      "[196,128]",
+      "--kurtosis_stop_grad"
+    ],
+    "model_kwargs": {
+      "pooling": "mean_std_kurtosis",
+      "mlp2": [
+        196,
+        128
+      ],
+      "kurtosis_stop_grad": true
+    },
+    "family": "native",
+    "output": "results/kurtosis_sg",
+    "variant": "baseline"
+  },
+  "parcel_mean_std": {
+    "kind": "native",
+    "train_args": [
+      "--parcel_stats",
+      "mean_std"
+    ],
+    "model_kwargs": {
+      "parcel_stats": "mean_std"
+    },
+    "family": "native",
+    "output": "results/parcel_mean_std",
+    "variant": "baseline"
+  },
+  "parcel_mean_std_kurtosis": {
+    "kind": "native",
+    "train_args": [
+      "--parcel_stats",
+      "mean_std_kurtosis"
+    ],
+    "model_kwargs": {
+      "parcel_stats": "mean_std_kurtosis"
+    },
+    "family": "native",
+    "output": "results/parcel_mean_std_kurtosis",
+    "variant": "baseline"
+  },
+  "raw_kurtosis": {
+    "kind": "native",
+    "train_args": [
+      "--raw_kurtosis_extra"
+    ],
+    "model_kwargs": {
+      "raw_kurtosis_extra": true
+    },
+    "family": "native",
+    "output": "results/raw_kurtosis",
+    "variant": "baseline"
+  },
+  "date_kurtosis": {
+    "kind": "native",
+    "train_args": [
+      "--date_kurtosis",
+      "--baseline_ckpt",
+      "{baseline}",
+      "--mlp4",
+      "[152,64,32,20]"
+    ],
+    "model_kwargs": {
+      "date_kurtosis": true,
+      "mlp4": [
+        152,
+        64,
+        32,
+        20
+      ]
+    },
+    "family": "native",
+    "output": "results/date_kurtosis",
+    "variant": "baseline"
+  },
+  "class_weighted": {
+    "kind": "native",
+    "train_args": [
+      "--inv_sqrt_weight"
+    ],
+    "model_kwargs": {},
+    "family": "native",
+    "output": "results/inv_sqrt",
+    "variant": "baseline"
+  },
+  "decoder_adjusted": {
+    "kind": "native",
+    "train_args": [
+      "--freeze_encoder",
+      "--baseline_ckpt",
+      "{baseline}",
+      "--logit_adjust_tau",
+      "0.1"
+    ],
+    "model_kwargs": {},
+    "family": "native",
+    "output": "results/decoder_adjusted",
+    "variant": "baseline"
+  },
+  "patch_baseline": {
+    "kind": "patch",
+    "script": "train_tgt_scratch.py",
+    "variant": "baseline",
+    "family": "patch",
+    "output": "results/grouped_scratch",
+    "train_args": []
+  },
+  "capacity": {
+    "kind": "patch",
+    "script": "train_tgt_scratch.py",
+    "variant": "capacity",
+    "family": "patch",
+    "output": "results/grouped_scratch",
+    "train_args": []
+  },
+  "tgt": {
+    "kind": "patch",
+    "script": "train_tgt_scratch.py",
+    "variant": "grouped",
+    "family": "patch",
+    "output": "results/grouped_scratch",
+    "train_args": []
+  },
+  "capacity_large": {
+    "kind": "patch",
+    "script": "train_capacity_large.py",
+    "variant": "capacity_large",
+    "family": "large",
+    "output": "results/capacity_large",
+    "train_args": []
+  },
+  "tgt_correction": {
+    "kind": "patch",
+    "script": "tgt_correction_probes.py",
+    "variant": "temporal",
+    "family": "group_correction",
+    "output": "results/grouped_corrections",
+    "train_args": []
+  },
+  "tgt_spatial_correction": {
+    "kind": "patch",
+    "script": "tgt_correction_probes.py",
+    "variant": "spatial_nopos",
+    "family": "group_correction",
+    "output": "results/grouped_corrections",
+    "train_args": []
+  },
+  "tgt_control": {
+    "kind": "patch",
+    "script": "tgt_correction_probes.py",
+    "variant": "control",
+    "family": "group_correction",
+    "output": "results/grouped_corrections",
+    "train_args": []
+  },
+  "cnn_spatial": {
+    "kind": "patch",
+    "script": "cnn_correction_probes.py",
+    "variant": "cnn_spatial",
+    "family": "cnn_correction",
+    "output": "results/cnn_corrections",
+    "train_args": []
+  },
+  "cnn_tgt": {
+    "kind": "patch",
+    "script": "cnn_correction_probes.py",
+    "variant": "cnn_temporal",
+    "family": "cnn_correction",
+    "output": "results/cnn_corrections",
+    "train_args": []
+  },
+  "date_dropout": {
+    "kind": "patch",
+    "script": "finetune_date_dropout.py",
+    "variant": "date_dropout",
+    "family": "dropout",
+    "output": "results/date_dropout",
+    "train_args": [
+      "--source",
+      "{capacity}"
+    ]
+  },
+  "cnn_ta_td_large": {
+    "kind": "patch",
+    "script": "train_cnn_ta_td_large.py",
+    "variant": "cnn_ta_td_large",
+    "family": "cnn_large",
+    "output": "results/cnn_ta_td_large",
+    "train_args": []
+  },
+  "pixel_temporal": {
+    "kind": "pixel",
+    "script": "train_pixel_temporal.py",
+    "variant": "temporal",
+    "family": "pixel_temporal",
+    "output": "results/pixel_temporal_scratch",
+    "train_args": []
+  },
+  "pixel_temporal_spatial_nopos": {
+    "kind": "pixel",
+    "script": "train_pixel_temporal.py",
+    "variant": "temporal_spatial_nopos",
+    "family": "pixel_temporal",
+    "output": "results/pixel_temporal_scratch",
+    "train_args": []
+  },
+  "correction_control": {
+    "kind": "small",
+    "script": "frozen_correction_probes.py",
+    "variant": "control",
+    "family": "small_correction",
+    "output": "results/frozen_corrections",
+    "train_args": []
+  },
+  "probe_control": {
+    "kind": "small",
+    "script": "frozen_trajectory_probes.py",
+    "variant": "control",
+    "family": "small_probe",
+    "output": "results/frozen_trajectories",
+    "train_args": []
+  },
+  "correction_static": {
+    "kind": "small",
+    "script": "frozen_correction_probes.py",
+    "variant": "static",
+    "family": "small_correction",
+    "output": "results/frozen_corrections",
+    "train_args": []
+  },
+  "probe_static": {
+    "kind": "small",
+    "script": "frozen_trajectory_probes.py",
+    "variant": "static",
+    "family": "small_probe",
+    "output": "results/frozen_trajectories",
+    "train_args": []
+  },
+  "correction_temporal": {
+    "kind": "small",
+    "script": "frozen_correction_probes.py",
+    "variant": "temporal",
+    "family": "small_correction",
+    "output": "results/frozen_corrections",
+    "train_args": []
+  },
+  "probe_temporal": {
+    "kind": "small",
+    "script": "frozen_trajectory_probes.py",
+    "variant": "temporal",
+    "family": "small_probe",
+    "output": "results/frozen_trajectories",
+    "train_args": []
+  },
+  "correction_patch_temporal": {
+    "kind": "small",
+    "script": "frozen_correction_probes.py",
+    "variant": "patch_temporal",
+    "family": "small_correction",
+    "output": "results/frozen_corrections",
+    "train_args": []
+  },
+  "probe_patch_temporal": {
+    "kind": "small",
+    "script": "frozen_trajectory_probes.py",
+    "variant": "patch_temporal",
+    "family": "small_probe",
+    "output": "results/frozen_trajectories",
+    "train_args": []
+  },
+  "correction_spatial_nopos": {
+    "kind": "small",
+    "script": "frozen_correction_probes.py",
+    "variant": "spatial_nopos",
+    "family": "small_correction",
+    "output": "results/frozen_corrections",
+    "train_args": []
+  },
+  "probe_spatial_nopos": {
+    "kind": "small",
+    "script": "frozen_trajectory_probes.py",
+    "variant": "spatial_nopos",
+    "family": "small_probe",
+    "output": "results/frozen_trajectories",
+    "train_args": []
+  },
+  "correction_spatial": {
+    "kind": "small",
+    "script": "frozen_correction_probes.py",
+    "variant": "spatial",
+    "family": "small_correction",
+    "output": "results/frozen_corrections",
+    "train_args": []
+  },
+  "probe_spatial": {
+    "kind": "small",
+    "script": "frozen_trajectory_probes.py",
+    "variant": "spatial",
+    "family": "small_probe",
+    "output": "results/frozen_trajectories",
+    "train_args": []
+  },
+  "distilled": {
+    "kind": "distill",
+    "script": "distill_student.py",
+    "variant": "distilled",
+    "family": "distilled",
+    "output": "results/distillation",
+    "train_args": []
+  },
+  "ce_control": {
+    "kind": "distill",
+    "script": "distill_student.py",
+    "variant": "hard_label",
+    "family": "distilled",
+    "output": "results/distillation",
+    "train_args": []
+  }
+}

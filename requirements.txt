@@ -1,0 +1,11 @@
+# Training-server environment, 2026-10-19; use Python 3.12.
+# Install torch separately for CPU or your CUDA driver.
+numpy==1.26.4
+pandas==3.0.6
+scikit-learn==1.9.1
+xgboost==2.1.4
+joblib==1.6.0
+threadpoolctl==3.7.0
+matplotlib>=3.8,<4
+plotly>=6,<8
+tqdm>=4.66,<5

@@ -1,0 +1,64 @@
+{
+  "folds": [
+    {
+      "fold": 1,
+      "n": 38283,
+      "miou": 0.511671152014907,
+      "oa": 0.9422197842384348,
+      "mean_recall": 0.5832134508162574,
+      "source": "results/baseline/Fold_1/conf_mat.pkl",
+      "sha256": "73403c32fe8cdbe26e9b5bf8e91a1c00e52f415ee470879d6ec0c02c0cc823a7"
+    },
+    {
+      "fold": 2,
+      "n": 38283,
+      "miou": 0.5078272344105792,
+      "oa": 0.9425593605516809,
+      "mean_recall": 0.5814690569746828,
+      "source": "results/baseline/Fold_2/conf_mat.pkl",
+      "sha256": "9ae0602e22c9fb9fe913639ef80fdb4d87d555fe494a8d7c3b6ac76636700d54"
+    },
+    {
+      "fold": 3,
+      "n": 38282,
+      "miou": 0.5070883943362618,
+      "oa": 0.9423488845932815,
+      "mean_recall": 0.5873495465132198,
+      "source": "results/baseline/Fold_3/conf_mat.pkl",
+      "sha256": "1b83ee89a6d82d144084713592c50512cfa109d56053418aa8b9f4abee7f1d7c"
+    },
+    {
+      "fold": 4,
+      "n": 38282,
+      "miou": 0.5027559531817792,
+      "oa": 0.9407554464239068,
+      "mean_recall": 0.573801550446319,
+      "source": "results/baseline/Fold_4/conf_mat.pkl",
+      "sha256": "c330729b0fcae64a01c80349d184dc84a688717c29cbf5f4366df0c390a245e6"
+    },
+    {
+      "fold": 5,
+      "n": 38282,
+      "miou": 0.5187841773991912,
+      "oa": 0.9432631523953816,
+      "mean_recall": 0.599375519418132,
+      "source": "results/baseline/Fold_5/conf_mat.pkl",
+      "sha256": "5686c8675f64aa5de28b77da15dcb2a2688c82fdcd1e6c567f50da24b7415de6"
+    }
+  ],
+  "summary": {
+    "miou": {
+      "mean": 0.5096253822685437,
+      "sample_sd": 0.006019289857741531
+    },
+    "oa": {
+      "mean": 0.9422293256405372,
+      "sample_sd": 0.0009171186030656048
+    },
+    "mean_recall": {
+      "mean": 0.5850418248337222,
+      "sample_sd": 0.009397230573626493
+    }
+  },
+  "note": "Original reproduced baseline, saved evaluation draws; differs slightly from later cached native baseline."
+}

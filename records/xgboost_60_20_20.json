@@ -1,0 +1,551 @@
+{
+  "mean_std": {
+    "folds": [
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 2,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 1,
+          "feature_set": "mean_std",
+          "counts": {
+            "train": 114846,
+            "val": 38283,
+            "test": 38283
+          }
+        },
+        "best_round": 183,
+        "seconds": 989.7113602161407,
+        "validation_miou": 41.40734823077417,
+        "test": {
+          "oa": 92.90546717864326,
+          "miou": 41.5240880509734,
+          "mean_recall": 44.89780680741101
+        },
+        "execution": {
+          "system": "Linux",
+          "machine": "x86_64",
+          "python": "3.12.3",
+          "numpy": "2.5.4",
+          "xgboost": "2.1.4",
+          "sklearn": "1.9.1",
+          "threads": 2,
+          "recorded_after_training": true
+        },
+        "model_sha256": "516c038943b90d479f459c2c385c43652bc0c6fff0f42c0e441c240cc6b31845",
+        "split_sha256": {
+          "train": "7e8c2012c88112ddd526ec3f386fe4850195745ebf7d7cda5a6b923ecaa16ff5",
+          "val": "7b07b52838161de79462b3f89e10ce936bb68360ed6bf6b70c63fdae1e3cd7bd",
+          "test": "a329683cec91e785a71b57eba3661a46465a5b421f76fa4b78476c07c02814ee"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 2,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 2,
+          "feature_set": "mean_std",
+          "counts": {
+            "train": 114846,
+            "val": 38283,
+            "test": 38283
+          }
+        },
+        "best_round": 173,
+        "seconds": 992.9295480251312,
+        "validation_miou": 41.334564380514095,
+        "test": {
+          "oa": 93.17190397826711,
+          "miou": 41.22637921520765,
+          "mean_recall": 44.311788594414764
+        },
+        "execution": {
+          "system": "Linux",
+          "machine": "x86_64",
+          "python": "3.12.3",
+          "numpy": "2.5.4",
+          "xgboost": "2.1.4",
+          "sklearn": "1.9.1",
+          "threads": 2,
+          "recorded_after_training": true
+        },
+        "model_sha256": "d407831b0d956d84726da908c0fd72464c66b8406ee3edcaa50b7a893217482b",
+        "split_sha256": {
+          "train": "ef890d318199b73384da1fc3170c651825483243226979a059bf6ff7ccff59f8",
+          "val": "7b07b52838161de79462b3f89e10ce936bb68360ed6bf6b70c63fdae1e3cd7bd",
+          "test": "35574116fd2dac4e6ca0c181d1e68c4e3bcb1f0c0f83807f67c8f01e8ab47977"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 4,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 3,
+          "feature_set": "mean_std",
+          "counts": {
+            "train": 114847,
+            "val": 38283,
+            "test": 38282
+          }
+        },
+        "best_round": 189,
+        "seconds": 534.533385515213,
+        "execution": {
+          "system": "Linux",
+          "machine": "x86_64",
+          "python": "3.12.3",
+          "numpy": "2.5.4",
+          "xgboost": "2.1.4",
+          "threads": 4
+        },
+        "validation_miou": 41.12931253018887,
+        "test": {
+          "oa": 93.11425735332533,
+          "miou": 41.43832298162508,
+          "mean_recall": 44.75558411653478
+        },
+        "model_sha256": "ed69fa589805ce8e368dc66ee1269d0110548a156e49d3ca6a801fd0946992a9",
+        "split_sha256": {
+          "train": "5ebb6c3acc65c9ac90ed24ddfa6d6c374eb1d1bc5a9950cae48eb1ad5903f116",
+          "val": "7b07b52838161de79462b3f89e10ce936bb68360ed6bf6b70c63fdae1e3cd7bd",
+          "test": "91058429ff8accfce849e18e50e0da004166703f7da81b7dc6f2335d894a7901"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 2,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 4,
+          "feature_set": "mean_std",
+          "counts": {
+            "train": 114847,
+            "val": 38283,
+            "test": 38282
+          }
+        },
+        "best_round": 142,
+        "seconds": 893.9923369884491,
+        "validation_miou": 42.28481126149247,
+        "test": {
+          "oa": 92.93924037406615,
+          "miou": 41.03594976769821,
+          "mean_recall": 44.50008471155221
+        },
+        "execution": {
+          "system": "Darwin",
+          "machine": "arm64",
+          "python": "3.12.6",
+          "numpy": "1.26.4",
+          "xgboost": "2.1.4",
+          "sklearn": "1.9.1",
+          "threads": 2,
+          "recorded_after_training": true
+        },
+        "model_sha256": "3ab9a49bdbe6f4d84b17d7d691aefcc0ce9578d67108127b2ab9dc07d12a7b01",
+        "split_sha256": {
+          "train": "b331afb132e89c808e6fe98602465b3a7836fde347be8049f2ddfa6f072f51d7",
+          "val": "4d81b6415eef13ff37b8b132c1c4b701faee7d1aa0423896f91d3631bb6e77ec",
+          "test": "7156b1edb096c90a7636d9fb7f92058a481028166d65ab5e3cfa328eb9c56e9b"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 2,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 5,
+          "feature_set": "mean_std",
+          "counts": {
+            "train": 114847,
+            "val": 38283,
+            "test": 38282
+          }
+        },
+        "best_round": 134,
+        "seconds": 835.6286239624023,
+        "execution": {
+          "system": "Darwin",
+          "machine": "arm64",
+          "python": "3.12.6",
+          "numpy": "1.26.4",
+          "xgboost": "2.1.4",
+          "threads": 2
+        },
+        "validation_miou": 41.14164706870782,
+        "test": {
+          "oa": 93.07246225380075,
+          "miou": 41.792141682466756,
+          "mean_recall": 45.13757433113774
+        },
+        "model_sha256": "057613465102a090502bd934df4060ad1b8631308894334c41cd1bcea54f3d61",
+        "split_sha256": {
+          "train": "b331afb132e89c808e6fe98602465b3a7836fde347be8049f2ddfa6f072f51d7",
+          "val": "453af02596d87708e99a247677cff6e45ad97b5cc403acd58817ba9ddd4bd5d7",
+          "test": "7e1016383051b321f185261309a4902e2705d5a7a84920e44afd81e4469791ca"
+        }
+      }
+    ],
+    "summary": {
+      "miou": {
+        "mean": 41.40337633959422,
+        "sd": 0.28864396089667693
+      },
+      "oa": {
+        "mean": 93.04066622762052,
+        "sd": 0.11425407527930849
+      },
+      "mean_recall": {
+        "mean": 44.7205677122101,
+        "sd": 0.32490286486639686
+      }
+    }
+  },
+  "mean_std_kurtosis": {
+    "folds": [
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 4,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 1,
+          "feature_set": "mean_std_kurtosis",
+          "counts": {
+            "train": 114846,
+            "val": 38283,
+            "test": 38283
+          }
+        },
+        "best_round": 178,
+        "seconds": 367.92758679389954,
+        "validation_miou": 40.9945281910878,
+        "test": {
+          "oa": 92.97338244129249,
+          "miou": 40.69700082291317,
+          "mean_recall": 43.87275431489307
+        },
+        "execution": {
+          "system": "Darwin",
+          "machine": "arm64",
+          "python": "3.12.6",
+          "numpy": "1.26.4",
+          "xgboost": "2.1.4",
+          "sklearn": "1.9.1",
+          "threads": 4,
+          "recorded_after_training": true
+        },
+        "model_sha256": "aee80537f8c49a3ed74002ac7958d30e3cc25c49da0df7a3bce6b57ba7d2e333",
+        "split_sha256": {
+          "train": "7e8c2012c88112ddd526ec3f386fe4850195745ebf7d7cda5a6b923ecaa16ff5",
+          "val": "7b07b52838161de79462b3f89e10ce936bb68360ed6bf6b70c63fdae1e3cd7bd",
+          "test": "a329683cec91e785a71b57eba3661a46465a5b421f76fa4b78476c07c02814ee"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 4,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 2,
+          "feature_set": "mean_std_kurtosis",
+          "counts": {
+            "train": 114846,
+            "val": 38283,
+            "test": 38283
+          }
+        },
+        "best_round": 178,
+        "seconds": 646.426187992096,
+        "validation_miou": 41.90841667326149,
+        "test": {
+          "oa": 93.19280098215918,
+          "miou": 40.512283640639154,
+          "mean_recall": 43.564029369762366
+        },
+        "execution": {
+          "system": "Darwin",
+          "machine": "arm64",
+          "python": "3.12.6",
+          "numpy": "1.26.4",
+          "xgboost": "2.1.4",
+          "sklearn": "1.9.1",
+          "threads": 4,
+          "recorded_after_training": true
+        },
+        "model_sha256": "6b896c3ad9965ee8976a67e111e7584bfcaa92ff932b4d9926746322e86b0656",
+        "split_sha256": {
+          "train": "ef890d318199b73384da1fc3170c651825483243226979a059bf6ff7ccff59f8",
+          "val": "7b07b52838161de79462b3f89e10ce936bb68360ed6bf6b70c63fdae1e3cd7bd",
+          "test": "35574116fd2dac4e6ca0c181d1e68c4e3bcb1f0c0f83807f67c8f01e8ab47977"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 4,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 3,
+          "feature_set": "mean_std_kurtosis",
+          "counts": {
+            "train": 114847,
+            "val": 38283,
+            "test": 38282
+          }
+        },
+        "best_round": 198,
+        "seconds": 756.5232000350952,
+        "validation_miou": 41.167143023085565,
+        "test": {
+          "oa": 93.23703045817878,
+          "miou": 41.088615256840235,
+          "mean_recall": 44.184343243017594
+        },
+        "execution": {
+          "system": "Darwin",
+          "machine": "arm64",
+          "python": "3.12.6",
+          "numpy": "1.26.4",
+          "xgboost": "2.1.4",
+          "sklearn": "1.9.1",
+          "threads": 4,
+          "recorded_after_training": true
+        },
+        "model_sha256": "a5d52d9b3e522a5dc61e12df5a4a73b0d287f7e42eb8fd216baecc9061d64ec1",
+        "split_sha256": {
+          "train": "5ebb6c3acc65c9ac90ed24ddfa6d6c374eb1d1bc5a9950cae48eb1ad5903f116",
+          "val": "7b07b52838161de79462b3f89e10ce936bb68360ed6bf6b70c63fdae1e3cd7bd",
+          "test": "91058429ff8accfce849e18e50e0da004166703f7da81b7dc6f2335d894a7901"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 4,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 4,
+          "feature_set": "mean_std_kurtosis",
+          "counts": {
+            "train": 114847,
+            "val": 38283,
+            "test": 38282
+          }
+        },
+        "best_round": 179,
+        "seconds": 701.3124840259552,
+        "validation_miou": 41.31205874566029,
+        "test": {
+          "oa": 93.02805496055588,
+          "miou": 40.637836337258726,
+          "mean_recall": 43.9805696072798
+        },
+        "execution": {
+          "system": "Darwin",
+          "machine": "arm64",
+          "python": "3.12.6",
+          "numpy": "1.26.4",
+          "xgboost": "2.1.4",
+          "sklearn": "1.9.1",
+          "threads": 4,
+          "recorded_after_training": true
+        },
+        "model_sha256": "1af183af44db87dbed476df2a9b35a46eab2618e293fe8ea9993fda38f7f2042",
+        "split_sha256": {
+          "train": "b331afb132e89c808e6fe98602465b3a7836fde347be8049f2ddfa6f072f51d7",
+          "val": "4d81b6415eef13ff37b8b132c1c4b701faee7d1aa0423896f91d3631bb6e77ec",
+          "test": "7156b1edb096c90a7636d9fb7f92058a481028166d65ab5e3cfa328eb9c56e9b"
+        }
+      },
+      {
+        "protocol": {
+          "split": "60/20/20",
+          "selection": "maximum validation mIoU; earliest tie",
+          "rounds": 200,
+          "params": {
+            "max_depth": 6,
+            "eta": 0.1,
+            "subsample": 0.8,
+            "colsample_bytree": 0.8,
+            "objective": "multi:softprob",
+            "num_class": 20,
+            "tree_method": "hist",
+            "device": "cpu",
+            "nthread": 4,
+            "seed": 1,
+            "disable_default_eval_metric": 1
+          },
+          "fold": 5,
+          "feature_set": "mean_std_kurtosis",
+          "counts": {
+            "train": 114847,
+            "val": 38283,
+            "test": 38282
+          }
+        },
+        "best_round": 185,
+        "seconds": 808.3537588119507,
+        "execution": {
+          "system": "Linux",
+          "machine": "x86_64",
+          "python": "3.12.3",
+          "numpy": "2.5.4",
+          "xgboost": "2.1.4",
+          "threads": 4
+        },
+        "validation_miou": 40.684868568556276,
+        "test": {
+          "oa": 93.20307193981505,
+          "miou": 41.40665553816152,
+          "mean_recall": 44.61498852949302
+        },
+        "model_sha256": "bf7a24069040a32fa0aac6be08759f52fb000157b084ca5dd234d965b0a8b24f",
+        "split_sha256": {
+          "train": "b331afb132e89c808e6fe98602465b3a7836fde347be8049f2ddfa6f072f51d7",
+          "val": "453af02596d87708e99a247677cff6e45ad97b5cc403acd58817ba9ddd4bd5d7",
+          "test": "7e1016383051b321f185261309a4902e2705d5a7a84920e44afd81e4469791ca"
+        }
+      }
+    ],
+    "summary": {
+      "miou": {
+        "mean": 40.86847831916256,
+        "sd": 0.36998982922657614
+      },
+      "oa": {
+        "mean": 93.12686815640028,
+        "sd": 0.11791077057202085
+      },
+      "mean_recall": {
+        "mean": 44.04333701288917,
+        "sd": 0.3903339064803496
+      }
+    }
+  },
+  "provenance": {
+    "feature_cache_sha256": {
+      "moments.npy": "90e35dfcecc37fbfc21ab078e3bc639773a6d2a6401ce85e3bd435583bdb487b",
+      "targets.npy": "60ed6b4789f93ee323c021a86bb45fd98189c7f91ea7af000a74f81055e7c83d",
+      "pids.npy": "0059194f701a54543cdf5feb026c2208e0465bd1dad9cb33388afd3f08ae74e8"
+    },
+    "execution": "CPU; exact software, architecture and thread counts are recorded per fold when available",
+    "notes": "Exact original 60/20/20 partitions; validation-selected boosting round. Legacy <2-pixel parcels retain the original all-zero moment vector. Across-fold SD is descriptive; training sets overlap."
+  }
+}
