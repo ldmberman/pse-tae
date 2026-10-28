@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[1]
 
 def command(a):
     recipes=json.loads((ROOT/'configs/experiments.json').read_text());r=recipes[a.experiment]
-    fold=a.fold;out=r['output'];kind=r['kind'];variant=r['variant'];baseline=a.baseline or f'results/baseline/Fold_{fold}/model.pth.tar'
+    fold=a.fold;out=r.get('output_by_fold',{}).get(str(fold),r['output']);kind=r['kind'];variant=r['variant'];baseline=a.baseline or f'results/baseline/Fold_{fold}/model.pth.tar'
     replace={'baseline':baseline,'capacity':a.source or f'results/grouped_scratch/Fold_{fold}/capacity/best.pt'}
     flags=[x.format(**replace) for x in r.get('train_args',[])]
     ck=a.checkpoint or f'{out}/Fold_{fold}/'+('model.pth.tar' if kind=='native' else f'{variant}/best.pt')

@@ -6,29 +6,11 @@
         "",
         [
           {
-            "label": "Eight-model ensemble: remove only RoPE (post-hoc)",
-            "values": [
-              54.97609569336379,
-              94.96120993652535,
-              61.47710025232469
-            ],
-            "source": "records/rope_removal.json"
-          },
-          {
             "label": "Validation-selected ensemble (9 members)",
             "values": [
               54.93308503001464,
               95.02912519917457,
               61.207594983632276
-            ],
-            "source": "results/ensemble_library/Fold_1/report.json"
-          },
-          {
-            "label": "Eight-model control: six + baseline checkpoints 27 / 78",
-            "values": [
-              54.15609283788674,
-              94.96643418749838,
-              59.63298862355673
             ],
             "source": "results/ensemble_library/Fold_1/report.json"
           },
@@ -547,6 +529,34 @@
               0.9397230573626493
             ],
             "source": "results/requested_comparison/baseline_five_folds.json"
+          },
+          {
+            "label": "Distilled baseline-size student",
+            "values": [
+              52.5518613416321,
+              94.59281533281441,
+              60.12218037297286
+            ],
+            "sd": [
+              0.7438225385517384,
+              0.057219202153172305,
+              1.1316433514100344
+            ],
+            "source": "records/distillation_five_folds.json"
+          },
+          {
+            "label": "Nine-model distillation teacher",
+            "values": [
+              54.63221518526403,
+              94.93500923024925,
+              61.03825364569617
+            ],
+            "sd": [
+              0.7444626334897423,
+              0.08638418047188233,
+              0.9717970146221144
+            ],
+            "source": "records/distillation_five_folds.json"
           }
         ]
       ],
@@ -660,6 +670,9 @@
         ]
       ]
     ],
-    "caption": []
+    "caption": [
+      "Teacher and distilled student now cover all five held-out test folds; the recipe was selected on fold 1.",
+      "Means and sample standard deviations are percentages. Training sets overlap."
+    ]
   }
 ]

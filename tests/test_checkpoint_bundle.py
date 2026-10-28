@@ -76,6 +76,17 @@ class CheckpointBundleTests(unittest.TestCase):
                                                  revision='fixed-revision',local_dir=self.bundle)
                 api.create_repo.assert_not_called()
 
+    def test_download_can_restore_the_recorded_revision_after_main_changes(self):
+        api=Mock()
+        api.repo_info.return_value=SimpleNamespace(private=False,sha='newer-main')
+        download=Mock()
+        hub=SimpleNamespace(HfApi=Mock(return_value=api),snapshot_download=download)
+        with patch.dict('sys.modules',{'huggingface_hub':hub}), patch(
+                'sys.argv',['hf_checkpoints.py','download','--repo-id','owner/checkpoints',
+                            '--revision','recorded-revision','--folder',str(self.bundle)]):
+            main()
+        self.assertEqual(download.call_args.kwargs['revision'],'recorded-revision')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -60,6 +60,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('action', choices=['upload', 'download', 'restore', 'verify'])
     p.add_argument('--repo-id')
+    p.add_argument('--revision', help='Download an immutable archive revision instead of the current branch')
     p.add_argument('--folder', type=Path, required=True)
     p.add_argument('--destination', type=Path, default=Path('.'))
     a = p.parse_args()
@@ -85,7 +86,7 @@ def main():
             raise RuntimeError('Repository privacy changed during upload')
     else:
         info = api.repo_info(a.repo_id, repo_type='model')
-        snapshot_download(a.repo_id, repo_type='model', revision=info.sha, local_dir=a.folder)
+        snapshot_download(a.repo_id, repo_type='model', revision=a.revision or info.sha, local_dir=a.folder)
         verify(a.folder)
     print(a.repo_id)
 

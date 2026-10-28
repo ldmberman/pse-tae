@@ -1,0 +1,81 @@
+{
+  "fold": 4,
+  "members": {
+    "baseline38": {
+      "checkpoint": "results/distillation_teachers/patch/Fold_4/baseline/best.pt",
+      "sha256": "92bda4de6754e485150bac9592ebb2048900eaaf64c1597c9f1598f08769267d",
+      "family": "patch",
+      "variant": "baseline",
+      "cached": {}
+    },
+    "capacity67": {
+      "checkpoint": "results/distillation_teachers/patch/Fold_4/capacity/best.pt",
+      "sha256": "b154639300f8f993c7bfbbfb7df48e379f798b7298da60d4c6e8e61a49993126",
+      "family": "patch",
+      "variant": "capacity",
+      "cached": {}
+    },
+    "grouped38": {
+      "checkpoint": "results/distillation_teachers/patch/Fold_4/grouped/best.pt",
+      "sha256": "b216a81e125dca14bee7abb00a48581c567b5368af28691ed1e84f2c3f51d6fb",
+      "family": "patch",
+      "variant": "grouped",
+      "cached": {}
+    },
+    "date_dropout11": {
+      "checkpoint": "results/distillation_teachers/date_dropout_fold4/Fold_4/date_dropout/best.pt",
+      "sha256": "eb377f89f0f254a19d90d1289fe96d4c100876ddc3024d7cedacf225819d309c",
+      "family": "dropout",
+      "variant": "date_dropout",
+      "cached": {}
+    },
+    "xgb": {
+      "checkpoint": "results/distillation_teachers/tabular/Fold_4/combined_xgb_sqrt_5.joblib",
+      "sha256": "9926bc2e92b7ac10eca4922299ff41a9a477e994d359bc0fe77314d3fa4da8d6",
+      "family": "tabular",
+      "variant": "",
+      "cached": {}
+    },
+    "cnn_temporal4": {
+      "checkpoint": "results/distillation_teachers/cnn/Fold_4/cnn_temporal/best.pt",
+      "sha256": "fe00e2ac5b1d370d37455e1cb2991c9b296fd1f6d732289a98d691a14dc35afb",
+      "family": "cnn_correction",
+      "variant": "cnn_temporal",
+      "cached": {}
+    },
+    "logistic": {
+      "checkpoint": "results/distillation_teachers/tabular/Fold_4/embedding_logistic_sqrt_0.01.joblib",
+      "sha256": "c74ca86f61b4c3b7755173a832790ced4981f95d04d0b777077157837d1e3ba8",
+      "family": "tabular",
+      "variant": "",
+      "cached": {}
+    },
+    "ltae": {
+      "checkpoint": "results/ltae/Fold_4/model.pth.tar",
+      "sha256": "a2ddbe238ff65b8571812407cc42ff4ea73b56700876aa26fb4271b16101ab99",
+      "family": "ltae",
+      "variant": "",
+      "cached": {}
+    },
+    "rope": {
+      "checkpoint": "results/rope/Fold_4/model.pth.tar",
+      "sha256": "5ab2f2ae90957391e2b33040ee8fe4ea44294f3665b166f3f3a69105290f0d38",
+      "family": "rope",
+      "variant": "",
+      "cached": {}
+    }
+  },
+  "ensembles": {
+    "nine": [
+      "baseline38",
+      "capacity67",
+      "grouped38",
+      "date_dropout11",
+      "xgb",
+      "cnn_temporal4",
+      "logistic",
+      "ltae",
+      "rope"
+    ]
+  }
+}

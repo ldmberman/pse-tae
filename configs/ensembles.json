@@ -238,40 +238,10 @@
       "ltae",
       "rope"
     ],
-    "without_rope": [
-      "baseline38",
-      "capacity67",
-      "grouped38",
-      "date_dropout11",
-      "xgb",
-      "cnn_temporal4",
-      "logistic",
-      "ltae"
-    ],
     "baseline_checkpoints": [
       "baseline27",
       "baseline38",
       "baseline78"
-    ],
-    "eight_checkpoints": [
-      "baseline38",
-      "capacity67",
-      "grouped38",
-      "date_dropout11",
-      "xgb",
-      "cnn_temporal4",
-      "baseline27",
-      "baseline78"
-    ],
-    "eight": [
-      "baseline38",
-      "capacity67",
-      "grouped38",
-      "date_dropout11",
-      "xgb",
-      "cnn_temporal4",
-      "logistic",
-      "ltae"
     ]
   }
 }

@@ -4,13 +4,14 @@ This repository proposes an improvement of the method for classifying crops on s
 
 | Model | Test mIoU | Test OA | Test average recall |
 |---|---:|---:|---:|
-| Original PSE+TAE | 51.31 | 94.24 | 58.35 |
-| L-TAE (our reproduction) | 49.99 | 94.32 | 56.26 |
-| Our distilled baseline-size student | 53.35 | 94.66 | 60.70 |
-| Our nine-model distillation teacher | 54.93 | **95.03** | 61.21 |
-| Our eight-model ensemble | **54.98** | 94.96 | **61.48** |
+| Original PSE+TAE | 50.96 ± 0.60 | 94.22 ± 0.09 | 58.50 ± 0.94 |
+| L-TAE (our reproduction) | 50.67 ± 0.95 | 94.33 ± 0.04 | - |
+| Our distilled baseline-size student | 52.55 ± 0.74 | 94.59 ± 0.06 | 60.12 ± 1.13 |
+| Our nine-model distillation teacher | **54.63** ± 0.74 | **94.94** ± 0.09 | **61.04** ± 0.97 |
 
-These results are only measured on the test split of the first fold.
+Five held-out test folds, mean ± sample standard deviation, in percent. Average recall is the unweighted mean of the 20 class recalls; it was not recorded in the original five-fold L-TAE summary.
+
+[Per-fold teacher/student scores and checkpoint provenance](records/distillation_five_folds.json). The original reproduction measurements are retained in [the baseline record](records/baseline_five_folds.json) and [the results ledger](records/table_data.json).
 
 Further on here we document a set of experiments and provide scripts for reproducing them.
 
@@ -60,7 +61,7 @@ Download the checkpoints:
 ```bash
 pip install huggingface_hub
 hf auth login
-python scripts/hf_checkpoints.py download --repo-id ldmberman/pse-tae-experiments --folder artifacts/hf
+python scripts/hf_checkpoints.py download --repo-id ldmberman/pse-tae-experiments --revision 5af7cbe94629b09088ceb574c000d95836298086 --folder artifacts/hf
 python scripts/hf_checkpoints.py restore --folder artifacts/hf --destination .
 ```
 
@@ -82,6 +83,8 @@ python scripts/reproduce.py baseline plots --fold 1
 </details>
 
 ## Research Log
+
+The experiments below document the original fold-1 exploration. The headline table above includes the completed five-fold evaluation of the fixed nine-model teacher and distilled student.
 
 1. [Assess decision thresholds](#step-1)
 2. [Think about missing information](#step-2): moments, reflectance properties and temporal trajectories
@@ -389,19 +392,30 @@ We distilled our best ensemble into a fresh baseline-size PSE+TAE student alongs
 | Matched CE-only control | 51.68 | 94.43 | 58.47 |
 | Distilled baseline-size student | **53.35** | **94.66** | **60.70** |
 
+We then kept the nine-member recipe and training budgets fixed and completed folds 2–5. Each fold used its own teacher checkpoints and TRAIN predictions; each student trained for 100 epochs, selecting its checkpoint by validation mIoU. The five-fold summary is shown at the top of this README; the matched CE-only control remains a fold-1 experiment.
+
 <details>
 <summary>Reproduce</summary>
 
 ```bash
 python scripts/evaluate_ensemble.py baseline_checkpoints --fold 1
-python scripts/evaluate_ensemble.py eight --fold 1
-python scripts/plot_predictions.py outputs/ensembles/eight/test/predictions.npz --output outputs/ensembles/eight/plots
+python scripts/evaluate_ensemble.py nine --fold 1
+python scripts/plot_predictions.py outputs/ensembles/nine/test/predictions.npz --output outputs/ensembles/nine/plots
 # Distill from the original nine-model teacher's TRAIN predictions.
 python scripts/evaluate_ensemble.py nine --fold 1 --split train
 python scripts/reproduce.py distilled train --fold 1 --teacher outputs/ensembles/nine/train/predictions.npz
 python scripts/reproduce.py ce_control train --fold 1 --teacher outputs/ensembles/nine/train/predictions.npz
 python scripts/reproduce.py distilled evaluate --fold 1
 python scripts/reproduce.py distilled plots --fold 1
+
+# After restoring the completed checkpoints, evaluate folds 2-5.
+# The evaluator selects configs/ensembles/fold-N.json and keeps outputs per fold.
+for fold in 2 3 4 5; do
+  python scripts/evaluate_ensemble.py nine --fold "$fold" --split test
+  python scripts/reproduce.py distilled evaluate --fold "$fold"
+done
+# To regenerate a fold's TRAIN teacher targets:
+python scripts/evaluate_ensemble.py nine --fold 2 --split train
 ```
 
 </details>

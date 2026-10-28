@@ -7,6 +7,7 @@ from scripts.ensemble_predictions import combine
 from scripts.evaluate_checkpoint import check_fold, model_arguments, parser as evaluation_parser
 from scripts.frozen_pair_probes import partitions
 from scripts.reproduce import command
+from scripts.evaluate_ensemble import manifest_path, output_path
 
 class ReproductionTests(unittest.TestCase):
     def test_geometry_is_not_unpacked_as_pair_at_batch_size_two(self):
@@ -45,6 +46,29 @@ class ReproductionTests(unittest.TestCase):
     def test_native_fold_end_is_requested_fold(self):
         a=argparse.Namespace(experiment='baseline',action='train',fold=3,baseline=None,source=None,checkpoint=None,native='data/native',patch='data/patch',cache='results/pair_probes',device='cuda',workers=0,epochs=None,batch_size=None)
         cmd=command(a);self.assertEqual(cmd[cmd.index('--start_fold')+1],'3');self.assertEqual(cmd[cmd.index('--fold_count')+1],'3')
+    def test_ensemble_manifests_keep_each_folds_own_checkpoints(self):
+        for fold in range(1,6):
+            config=json.loads((ROOT/manifest_path(fold)).read_text())
+            self.assertEqual(config['fold'],fold)
+            self.assertEqual(len(config['ensembles']['nine']),9)
+            for name in config['ensembles']['nine']:
+                member=config['members'][name]
+                self.assertEqual(len(member['sha256']),64)
+                if fold>1:self.assertIn(f'Fold_{fold}/',member['checkpoint'])
+        self.assertEqual(manifest_path(3,'custom.json'),Path('custom.json'))
+    def test_ensemble_outputs_do_not_overwrite_other_folds(self):
+        outputs=[output_path('nine',fold,'train') for fold in range(1,6)]
+        self.assertEqual(len(set(outputs)),5)
+        self.assertEqual(outputs[0],Path('outputs/ensembles/nine/train'))
+        self.assertEqual(outputs[4],Path('outputs/ensembles/nine/Fold_5/train'))
+    def test_distilled_evaluation_uses_completed_same_fold_checkpoints(self):
+        for fold in range(1,6):
+            a=argparse.Namespace(experiment='distilled',action='evaluate',fold=fold,baseline=None,source=None,checkpoint=None,native='data/native',patch='data/patch',cache='results/pair_probes',device='cpu',workers=0,batch_size=2,split='test',limit=0)
+            cmd=command(a)
+            folder='results/distillation' if fold==1 else 'results_distillation_crossfold'
+            self.assertEqual(cmd[cmd.index('--checkpoint')+1],f'{folder}/Fold_{fold}/distilled/best.pt')
+            a.checkpoint='custom/best.pt';cmd=command(a)
+            self.assertEqual(cmd[cmd.index('--checkpoint')+1],a.checkpoint)
     def test_native_evaluation_uses_central_recipe(self):
         recipes=json.loads((ROOT/'configs/experiments.json').read_text())
         for name,recipe in recipes.items():

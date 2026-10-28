@@ -6,9 +6,7 @@ Fold 1: 38283 held-out parcels
 
 | Method | Test mIoU | Test OA | Test average recall |
 |---|---:|---:|---:|
-| Eight-model ensemble: remove only RoPE (post-hoc) | **54.98** | 94.96 | 61.48 |
-| Validation-selected ensemble (9 members) | 54.93 | **95.03** | 61.21 |
-| Eight-model control: six + baseline checkpoints 27 / 78 | 54.16 | 94.97 | 59.63 |
+| Validation-selected ensemble (9 members) | **54.93** | **95.03** | 61.21 |
 | Six-model ensemble: previous five + CNN → TGT | 54.24 | 94.97 | 60.06 |
 | Five-model ensemble: four neural models + XGBoost | 53.72 | 94.88 | 59.58 |
 | Four-model ensemble: baseline + capacity + TGT + dropout | 52.62 | 94.80 | 58.02 |
@@ -55,9 +53,14 @@ Five-fold results: mean and sample standard deviation
 
 | Method | Test mIoU | Test OA | Test average recall |
 |---|---:|---:|---:|
-| PSE+TAE reproduction | **50.96** ± 0.60 | 94.22 ± 0.09 | **58.50** ± 0.94 |
+| PSE+TAE reproduction | 50.96 ± 0.60 | 94.22 ± 0.09 | 58.50 ± 0.94 |
+| Distilled baseline-size student | 52.55 ± 0.74 | 94.59 ± 0.06 | 60.12 ± 1.13 |
+| Nine-model distillation teacher | **54.63** ± 0.74 | **94.94** ± 0.09 | **61.04** ± 0.97 |
 | Earlier alternatives | | | |
-| L-TAE reproduction | 50.67 ± 0.95 | **94.33** ± 0.04 | - |
+| L-TAE reproduction | 50.67 ± 0.95 | 94.33 ± 0.04 | - |
 | Scaled kurtosis, stopped gradient | 50.79 ± 0.75 | 94.17 ± 0.21 | - |
 | XGBoost 60/20/20: band mean / std | 41.40 ± 0.29 | 93.04 ± 0.11 | 44.72 ± 0.32 |
 | XGBoost 60/20/20: band mean / std + kurtosis | 40.87 ± 0.37 | 93.13 ± 0.12 | 44.04 ± 0.39 |
+
+Teacher and distilled student now cover all five held-out test folds; the recipe was selected on fold 1.
+Means and sample standard deviations are percentages. Training sets overlap.

@@ -383,7 +383,13 @@
     "variant": "distilled",
     "family": "distilled",
     "output": "results/distillation",
-    "train_args": []
+    "train_args": [],
+    "output_by_fold": {
+      "2": "results_distillation_crossfold",
+      "3": "results_distillation_crossfold",
+      "4": "results_distillation_crossfold",
+      "5": "results_distillation_crossfold"
+    }
   },
   "ce_control": {
     "kind": "distill",
